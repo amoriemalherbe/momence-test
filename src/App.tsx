@@ -1,9 +1,10 @@
-import './App.css'
 import { ExchangeRatePage } from "./components/ExchangeRatePage.tsx";
+import { GlobalStyle } from "./styles/GlobalStyle.ts";
 
 function App() {
     return (
         <>
+            <GlobalStyle/>
             <ExchangeRatePage/>
         </>
     );

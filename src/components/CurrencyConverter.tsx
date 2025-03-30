@@ -13,14 +13,22 @@ const ConverterForm = styled.form`
 `;
 
 const FormSection = styled.div`
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
 `;
 
 const CurrencyInput = styled.input`
+    width: 100%;
     padding: 0.5rem;
     margin: 0.5rem;
+    text-align: right;
+`;
+
+const CurrencyLabel = styled.div`
+    width: 150px;
+    padding: 0.5rem;
 `;
 
 // Accepts the amount in CZK and the currency (row) to convert to
@@ -51,7 +59,7 @@ export const CurrencyConverter = () => {
     return (
             <ConverterForm>
                 <FormSection>
-                    <div>Convert to: </div>
+                    <strong> Convert to: </strong>
                     <CurrencySelector
                         selectedRow={selectedRow}
                         setSelectedRow={setSelectedRow}
@@ -67,7 +75,7 @@ export const CurrencyConverter = () => {
                             handleAmountChange(amount)
                         }}
                     />
-                    <div>CZK</div>
+                    <CurrencyLabel>CZK</CurrencyLabel>
                 </FormSection>
                 <FormSection>
                     {/* Note: I'm making this an input (readonly) so that in future it could potentially be used to convert other currencies back to CZK */}
@@ -76,7 +84,7 @@ export const CurrencyConverter = () => {
                         value={convertedAmount || ''}
                         readOnly
                     />
-                    <div>{selectedRow.code}</div>
+                    <CurrencyLabel>{selectedRow.code}</CurrencyLabel>
                 </FormSection>
             </ConverterForm>
     );

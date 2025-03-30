@@ -9,18 +9,35 @@ const TABLE_TITLES = [
     "Rate",
 ]
 
+// TODO: These could probably be named better
 const ListContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    width: 100%;
+    max-width: max-content;
+    
+    border: 1px solid #333;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    max-height: 600px;
+    overflow-y: scroll;
 `;
 
 const ListItem = styled.div`
-    padding: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-bottom: 1px solid #ddd;
+    &:nth-child(4n) {
+        border-right: none;
+    }
+    &:nth-child(-n+4) {
+        border-top: 1px solid #333;
+    }
 `;
 
 const ListHeaderItem = styled(ListItem)`
     font-weight: bold;
+    background-color: #f4f4f4;
+    border-bottom: 2px solid #333;
 `;
 
 export function CurrencyList() {
